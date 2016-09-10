@@ -7,7 +7,7 @@ Tema aplikasi ini adalah Pemesanan Tiket Kereta Api. Di aplikasi ini terdapat fo
 ![screenshot_2016-09-10-10-27-36-889_id sch smktelkom_mlg tugas01 xiirpl2018 tiketpemesanankeretaapi](https://cloud.githubusercontent.com/assets/22041608/18408157/4c7e751e-7751-11e6-948e-86454bf49e99.png)
 
 
-Link APK https://docs.google.com/open?id=0B0jBj0UuL4pTZWpBR04xSDZrR2s
+Link APK https://drive.google.com/open?id=0B0jBj0UuL4pTZWpBR04xSDZrR2s
 
 Nama: Hilga Damayanti
 Kelas: XII RPL 2
