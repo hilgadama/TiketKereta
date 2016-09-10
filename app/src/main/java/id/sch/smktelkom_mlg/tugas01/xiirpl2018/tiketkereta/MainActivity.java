@@ -46,44 +46,87 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doClick() {
+        if (isValid()) {
+            String nama = etNama.getText().toString();
+            String alamat = etAlamat.getText().toString();
+            String no = etNoKTP.getText().toString();
+            String tgl = etTanggal.getText().toString();
+            String hasil = null;
+
+            if (rgJenis.getCheckedRadioButtonId() != -1) {
+                RadioButton radbut = (RadioButton) findViewById(rgJenis.getCheckedRadioButtonId());
+                hasil = radbut.getText().toString();
+            }
+
+            if (hasil == null) {
+                tvHasil.setText("Anda belum memilih Kelas!");
+            } else {
+                String dari = spDari.getSelectedItem().toString();
+                String tujuan = spTujuan.getSelectedItem().toString();
+                String proses = "Nama : " + nama + "\n" +
+                        "Alamat : " + alamat + "\n" +
+                        "No. KTP : " + no + "\n" +
+                        "Tanggal : " + tgl + "\n";
+                String proses2 = "Dari : " + dari + "\n" +
+                        "Tujuan : " + tujuan + "\n";
+                String proses3 = "\n Tiket Untuk : \n";
+
+                if (cbBal.isChecked())
+                    proses3 += cbBal.getText() + "\n";
+                tvHasil.setText(proses + proses2 + proses3);
+
+                if (cbAnk.isChecked())
+                    proses3 += cbAnk.getText() + "\n";
+                tvHasil.setText(proses + proses2 + proses3);
+
+                if (cbDew.isChecked())
+                    proses3 += cbDew.getText() + "\n";
+                tvHasil.setText(proses + proses2 + proses3);
+
+
+            }
+        }
+    }
+
+    private boolean isValid() {
+        boolean valid = true;
+
         String nama = etNama.getText().toString();
         String alamat = etAlamat.getText().toString();
         String no = etNoKTP.getText().toString();
         String tgl = etTanggal.getText().toString();
-        String hasil = null;
 
-        if (rgJenis.getCheckedRadioButtonId() != -1) {
-            RadioButton radbut = (RadioButton) findViewById(rgJenis.getCheckedRadioButtonId());
-            hasil = radbut.getText().toString();
-        }
-
-        if (hasil == null) {
-            tvHasil.setText("Anda belum memilih Kelas!");
+        if (nama.isEmpty()) {
+            etNama.setError("Nama anda belum terisi!");
+            valid = false;
         } else {
-            String dari = spDari.getSelectedItem().toString();
-            String tujuan = spTujuan.getSelectedItem().toString();
-            String proses = "Nama : " + nama + "\n" +
-                    "Alamat : " + alamat + "\n" +
-                    "No. KTP : " + no + "\n" +
-                    "Tanggal : " + tgl + "\n";
-            String proses2 = "Dari : " + dari + "\n" +
-                    "Tujuan : " + tujuan + "\n";
-            String proses3 = "\n Tiket Untuk : \n";
-
-            if (cbBal.isChecked())
-                proses3 += cbBal.getText() + "\n";
-            tvHasil.setText(proses + proses2 + proses3);
-
-            if (cbAnk.isChecked())
-                proses3 += cbAnk.getText() + "\n";
-            tvHasil.setText(proses + proses2 + proses3);
-
-            if (cbDew.isChecked())
-                proses3 += cbDew.getText() + "\n";
-            tvHasil.setText(proses + proses2 + proses3);
-
-
+            etNama.setError(null);
         }
+
+        if (no.isEmpty()) {
+            etNoKTP.setError("No Identitas harap diisi!");
+            valid = false;
+        } else if (no.length() > 16) {
+            etNoKTP.setError("Nomor identitas maksimal 16 karakter");
+            valid = false;
+        } else {
+            etNoKTP.setError(null);
+        }
+
+        if (alamat.isEmpty()) {
+            etAlamat.setError("Alamat anda belum terisi!");
+            valid = false;
+        } else {
+            etAlamat.setError(null);
+        }
+
+        if (tgl.isEmpty()) {
+            etTanggal.setError("Tanggal anda belum terisi");
+            valid = false;
+        } else {
+            etTanggal.setError(null);
+        }
+        return valid;
     }
 }
 
