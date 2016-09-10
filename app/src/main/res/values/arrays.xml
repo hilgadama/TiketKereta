@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dari">
+        <item>Bandung</item>
+        <item>Jakarta</item>
+        <item>Jombang</item>
+        <item>Surabaya</item>
+        <item>Malang</item>
+    </string-array>
+    <string-array name="tujuan">
+        <item>Bandung</item>
+        <item>Jakarta</item>
+        <item>Jombang</item>
+        <item>Surabaya</item>
+        <item>Malang</item>
+    </string-array>
+</resources>
